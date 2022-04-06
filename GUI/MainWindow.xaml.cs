@@ -69,11 +69,12 @@ namespace GUI
 
         private void btnEdytuj_Click(object sender, RoutedEventArgs e)
         {
-            KierownikZespolu kierownik = Zespol.zwrocCalyZespol(cmbNazwy.Text).Kierownik;
-            OsobaWindow osobaWindow = new OsobaWindow(kierownik);
+            zespol = Zespol.zwrocCalyZespol(cmbNazwy.Text);
+            OsobaWindow osobaWindow = new OsobaWindow(zespol.Kierownik);
             bool? result = osobaWindow.ShowDialog();
             if (result == true)
             {
+                zespol.zapiszKierownika();
                 txtKierownik.Text = zespol.Kierownik.ToString();
             }
         }

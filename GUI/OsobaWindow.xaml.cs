@@ -49,7 +49,7 @@ namespace GUI
 
         private void btnZatwierdz_Click(object sender, RoutedEventArgs e)
         {
-            if (osoba is KierownikZespolu)
+            if (osoba is KierownikZespolu kierownik)
             {
                 ((KierownikZespolu)osoba).Doswiadczenie = int.Parse(txtDoswiadczenie.Text);
             }

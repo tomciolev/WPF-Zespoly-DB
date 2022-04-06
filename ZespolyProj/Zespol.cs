@@ -82,5 +82,9 @@ namespace ZespolyProj
             return _context.Zespoly.Where(z => z.Nazwa == nazwa).Include(zespol => zespol.Kierownik).Include(zespol =>
                zespol.Czlonkowie).FirstOrDefault();
         }
+        public void zapiszKierownika()
+        {
+            _context.SaveChanges();
+        }
     }
 }
