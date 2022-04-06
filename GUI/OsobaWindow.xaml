@@ -13,10 +13,10 @@
         <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="25,73,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Data urodzenia" HorizontalAlignment="Left" Margin="25,139,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Płeć" HorizontalAlignment="Left" Margin="25,175,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Funkcja" HorizontalAlignment="Left" Margin="26,211,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Doświadczenie" HorizontalAlignment="Left" Margin="26,247,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button x:Name="btnZatwierdz" Content="Zatwierdź" HorizontalAlignment="Left" Margin="26,318,0,0" VerticalAlignment="Top" FontSize="18" Width="140" Height="40" Click="btnZatwierdz_Click"/>
-        <Button x:Name="btnAnuluj" Content="Anuluj" HorizontalAlignment="Left" Margin="217,318,0,0" VerticalAlignment="Top" FontSize="18" Width="140" Height="40" Click="btnAnuluj_Click"/>
+        <Label Content="Funkcja" HorizontalAlignment="Left" Margin="26,243,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Doświadczenie" HorizontalAlignment="Left" Margin="26,279,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button x:Name="btnZatwierdz" Content="Zatwierdź" HorizontalAlignment="Left" Margin="26,330,0,0" VerticalAlignment="Top" FontSize="18" Width="140" Height="40" Click="btnZatwierdz_Click"/>
+        <Button x:Name="btnAnuluj" Content="Anuluj" HorizontalAlignment="Left" Margin="217,330,0,0" VerticalAlignment="Top" FontSize="18" Width="140" Height="40" Click="btnAnuluj_Click"/>
         <TextBox x:Name="txtImie" HorizontalAlignment="Left" Margin="174,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontSize="16"/>
         <TextBox x:Name="txtNazwisko" HorizontalAlignment="Left" Margin="174,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontSize="16"/>
         <TextBox x:Name="txtPesel" HorizontalAlignment="Left" Margin="174,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontSize="16"/>
@@ -25,9 +25,10 @@
             <System:String>Kobieta</System:String>
             <System:String>Mężczyzna</System:String>
         </ComboBox>
-        <TextBox x:Name="txtFunkcja" HorizontalAlignment="Left" Margin="174,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontSize="16"/>
-        <TextBox x:Name="txtDoswiadczenie" HorizontalAlignment="Left" Margin="174,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontSize="16"/>
-        <Label x:Name="labelWarning" Content="Proszę podać poprawny PESEL" HorizontalAlignment="Left" Margin="25,283,0,0" VerticalAlignment="Top" Foreground="Red" FontSize="14"/>
+        <TextBox x:Name="txtFunkcja" HorizontalAlignment="Left" Margin="174,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontSize="16"/>
+        <TextBox x:Name="txtDoswiadczenie" HorizontalAlignment="Left" Margin="174,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontSize="16"/>
+        <Label Content="Data zapisu" HorizontalAlignment="Left" Margin="25,209,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="txtDataZapisu" HorizontalAlignment="Left" Margin="174,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontSize="16"/>
 
     </Grid>
 </Window>

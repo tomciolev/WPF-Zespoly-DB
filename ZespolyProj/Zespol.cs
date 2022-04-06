@@ -43,6 +43,12 @@ namespace ZespolyProj
             _context.Zespoly.Add(zespol);
             _context.SaveChanges();
         }
+        public void usunZespol()
+        {
+            var zespol = _context.Zespoly.SingleOrDefault(x => x.Nazwa == this.Nazwa);
+            _context.Zespoly.Remove(zespol);
+            _context.SaveChanges();
+        }
         public void dodajCzlonka(CzlonekZespolu czlonek)
         {
             var zespol = _context.Zespoly.SingleOrDefault(x => x.Nazwa == this.Nazwa);

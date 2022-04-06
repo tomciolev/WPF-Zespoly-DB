@@ -28,7 +28,7 @@ namespace GUI
             InitializeComponent();
             txtFunkcja.IsEnabled = false;
             txtDoswiadczenie.IsEnabled = false;
-            labelWarning.Visibility = Visibility.Hidden;
+            txtDataZapisu.IsEnabled = false;
         }
         public OsobaWindow(Osoba os) : this()
         {
@@ -45,13 +45,13 @@ namespace GUI
             }
             else
             {
+                txtDataZapisu.IsEnabled = true;
                 txtFunkcja.IsEnabled = true;
             }
         }
 
         private void btnZatwierdz_Click(object sender, RoutedEventArgs e)
         {
-            Regex regex = new Regex("[0-9]{9}");
             if (osoba is KierownikZespolu kierownik)
             {
                 ((KierownikZespolu)osoba).Doswiadczenie = int.Parse(txtDoswiadczenie.Text);
@@ -59,6 +59,8 @@ namespace GUI
             if (osoba is CzlonekZespolu)
             {
                 ((CzlonekZespolu)osoba).Funkcja = txtFunkcja.Text;
+                DateTime.TryParseExact(txtDataZapisu.Text, new[] { "yyyy-MM-dd", "yyyy/MM/dd", "MM/dd/yy", "dd-MMM-yy" }, null, DateTimeStyles.None, out DateTime date2);
+                ((CzlonekZespolu)osoba).DataZapisu = date2;
             }
             osoba.Pesel = txtPesel.Text;
             osoba.Imie = txtImie.Text;

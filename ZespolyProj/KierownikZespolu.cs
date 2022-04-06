@@ -31,12 +31,6 @@ namespace ZespolyProj
             return info.ToString();
         }
 
-
         private static ZespolContext _context = new ZespolContext();
-        public static void dodajKierownika(KierownikZespolu kierownik)
-        {
-            _context.Kierownik.Add(kierownik);
-            _context.SaveChanges();
-        }
     }
 }
