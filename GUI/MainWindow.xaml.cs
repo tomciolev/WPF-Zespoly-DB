@@ -38,5 +38,10 @@ namespace GUI
                 dataGrid1.ItemsSource = Zespol.zwrocCzlonkowZespolu(cmbNazwy.Text);     
             }
         }
+
+        private void btnDodaj_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
