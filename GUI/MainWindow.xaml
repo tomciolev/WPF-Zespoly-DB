@@ -1,0 +1,26 @@
+﻿<Window x:Class="GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="754">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="102*"/>
+            <RowDefinition Height="115*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Zespół" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Kierownik" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox x:Name="cmbNazwy" HorizontalAlignment="Left" Margin="122,26,0,0" VerticalAlignment="Top" Width="276" FontSize="16" DropDownClosed="lstNazwy_DropDownClosed"/>
+        <TextBox x:Name="txtKierownik" HorizontalAlignment="Left" Margin="120,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="461" FontSize="16" Height="31"/>
+        <Button x:Name="btnEdytuj" Content="Edytuj" HorizontalAlignment="Left" Margin="602,74,0,0" VerticalAlignment="Top" FontSize="16" Height="31" Width="74"/>
+        <Label Content="Członkowie" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Background="#FF369EF5" FontSize="16" Width="666"/>
+        <DataGrid x:Name="dataGrid1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="168,180,78,55" Grid.RowSpan="2"/>
+        <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" FontSize="16" Width="123" Grid.RowSpan="2"/>
+        <Button x:Name="btnUsun" Content="Usuń" HorizontalAlignment="Left" Margin="10,20,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16" Width="123"/>
+        <Button x:Name="btnUsunWszystkich" Content="Usuń wszystkich" HorizontalAlignment="Left" Margin="10,50,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16" Width="123"/>
+
+    </Grid>
+</Window>
