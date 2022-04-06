@@ -68,5 +68,10 @@ namespace GUI
                 osoba.Plec = Osoba.Plcie.M;
             DialogResult = true; 
         }
+
+        private void btnAnuluj_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
     }
 }

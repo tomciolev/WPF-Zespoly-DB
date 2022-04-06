@@ -35,7 +35,7 @@ namespace GUI
             if(zespol is object)
             {
                 txtKierownik.Text = zespol.Kierownik.ToString();
-                dataGrid1.ItemsSource = Zespol.zwrocCzlonkowZespolu(cmbNazwy.Text);     
+                dataGrid1.ItemsSource = zespol.zwrocCzlonkowZespolu();     
             }
         }
 
@@ -46,10 +46,43 @@ namespace GUI
             bool? result = osobaWindow.ShowDialog();
             if (result == true)
             {
-                Zespol.dodajCzlonka(cz, 1);
-                dataGrid1.ItemsSource = Zespol.zwrocCzlonkowZespolu(cmbNazwy.Text);
+                zespol = Zespol.zwrocCalyZespol(cmbNazwy.Text);
+                zespol.dodajCzlonka(cz);
+                dataGrid1.ItemsSource = zespol.zwrocCzlonkowZespolu();
                 dataGrid1.Items.Refresh();
             }
+        }
+
+        private void btnUsun_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGrid1.SelectedIndex > -1)
+            {
+                for (int i = 0; i <= dataGrid1.SelectedItems.Count; i++)
+                {
+                    zespol.usunCzlonka((CzlonekZespolu)(dataGrid1.SelectedItem));
+                    dataGrid1.ItemsSource = zespol.zwrocCzlonkowZespolu();
+                    dataGrid1.Items.Refresh();
+                }
+
+            }
+        }
+
+        private void btnEdytuj_Click(object sender, RoutedEventArgs e)
+        {
+            KierownikZespolu kierownik = Zespol.zwrocCalyZespol(cmbNazwy.Text).Kierownik;
+            OsobaWindow osobaWindow = new OsobaWindow(kierownik);
+            bool? result = osobaWindow.ShowDialog();
+            if (result == true)
+            {
+                txtKierownik.Text = zespol.Kierownik.ToString();
+            }
+        }
+
+        private void btnUsunWszystkich_Click(object sender, RoutedEventArgs e)
+        {
+            zespol.usunWszystkichCzlonkow();
+            dataGrid1.ItemsSource = zespol.zwrocCzlonkowZespolu();
+            dataGrid1.Items.Refresh();
         }
     }
 }

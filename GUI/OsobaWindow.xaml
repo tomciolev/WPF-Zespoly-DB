@@ -16,7 +16,7 @@
         <Label Content="Funkcja" HorizontalAlignment="Left" Margin="26,211,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Doświadczenie" HorizontalAlignment="Left" Margin="26,247,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Button x:Name="btnZatwierdz" Content="Zatwierdź" HorizontalAlignment="Left" Margin="26,295,0,0" VerticalAlignment="Top" FontSize="18" Width="140" Height="40" Click="btnZatwierdz_Click"/>
-        <Button x:Name="btnAnuluj" Content="Anuluj" HorizontalAlignment="Left" Margin="217,295,0,0" VerticalAlignment="Top" FontSize="18" Width="140" Height="40"/>
+        <Button x:Name="btnAnuluj" Content="Anuluj" HorizontalAlignment="Left" Margin="217,295,0,0" VerticalAlignment="Top" FontSize="18" Width="140" Height="40" Click="btnAnuluj_Click"/>
         <TextBox x:Name="txtImie" HorizontalAlignment="Left" Margin="174,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontSize="16"/>
         <TextBox x:Name="txtNazwisko" HorizontalAlignment="Left" Margin="174,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontSize="16"/>
         <TextBox x:Name="txtPesel" HorizontalAlignment="Left" Margin="174,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontSize="16"/>
