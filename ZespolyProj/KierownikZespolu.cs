@@ -14,6 +14,8 @@ namespace ZespolyProj
         [Key]
         public int KierownikId { get; set; }
         public int Doswiadczenie { get => doswiadczenie; set => doswiadczenie = value; }
+        public Zespol Zespol { get; set; }
+        public int ZespolId { get; set; }
 
         public KierownikZespolu() : base() { }
         public KierownikZespolu(string imie, string nazwisko, string dataUrodzenia, string pesel, Plcie plec, int doswiadczenie) 
