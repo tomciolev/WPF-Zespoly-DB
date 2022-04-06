@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,6 +28,7 @@ namespace GUI
             InitializeComponent();
             txtFunkcja.IsEnabled = false;
             txtDoswiadczenie.IsEnabled = false;
+            labelWarning.Visibility = Visibility.Hidden;
         }
         public OsobaWindow(Osoba os) : this()
         {
@@ -49,6 +51,7 @@ namespace GUI
 
         private void btnZatwierdz_Click(object sender, RoutedEventArgs e)
         {
+            Regex regex = new Regex("[0-9]{9}");
             if (osoba is KierownikZespolu kierownik)
             {
                 ((KierownikZespolu)osoba).Doswiadczenie = int.Parse(txtDoswiadczenie.Text);

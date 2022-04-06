@@ -63,20 +63,23 @@ namespace GUI
                     dataGrid1.ItemsSource = zespol.zwrocCzlonkowZespolu();
                     dataGrid1.Items.Refresh();
                 }
-
             }
         }
 
         private void btnEdytuj_Click(object sender, RoutedEventArgs e)
         {
             zespol = Zespol.zwrocCalyZespol(cmbNazwy.Text);
-            OsobaWindow osobaWindow = new OsobaWindow(zespol.Kierownik);
-            bool? result = osobaWindow.ShowDialog();
-            if (result == true)
+            if(zespol is object)
             {
-                zespol.zapiszKierownika();
-                txtKierownik.Text = zespol.Kierownik.ToString();
+                OsobaWindow osobaWindow = new OsobaWindow(zespol.Kierownik);
+                bool? result = osobaWindow.ShowDialog();
+                if (result == true)
+                {
+                    zespol.zapiszKierownika();
+                    txtKierownik.Text = zespol.Kierownik.ToString();
+                }
             }
+            
         }
 
         private void btnUsunWszystkich_Click(object sender, RoutedEventArgs e)
@@ -84,6 +87,19 @@ namespace GUI
             zespol.usunWszystkichCzlonkow();
             dataGrid1.ItemsSource = zespol.zwrocCzlonkowZespolu();
             dataGrid1.Items.Refresh();
+        }
+
+        private void btnDodajZespol_Click(object sender, RoutedEventArgs e)
+        {
+            Zespol zespol = new Zespol();
+            ZespolWindow zespolWindow = new ZespolWindow(zespol);
+            bool? result = zespolWindow.ShowDialog();
+            if(result == true)
+            {
+                Zespol.dodajZespol(zespol);
+                dataGrid1.ItemsSource = zespol.zwrocCzlonkowZespolu();
+                dataGrid1.Items.Refresh(); 
+            }
         }
     }
 }

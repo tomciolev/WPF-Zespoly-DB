@@ -38,9 +38,9 @@ namespace ZespolyProj
 
         private static ZespolContext _context = new ZespolContext();
 
-        public static void dodajZespol(string nazwa, KierownikZespolu kierownik)
+        public static void dodajZespol(Zespol zespol)
         {
-            _context.Zespoly.Add(new Zespol(nazwa, kierownik));
+            _context.Zespoly.Add(zespol);
             _context.SaveChanges();
         }
         public void dodajCzlonka(CzlonekZespolu czlonek)
