@@ -30,5 +30,13 @@ namespace ZespolyProj
             info.Append(Imie).Append(" ").Append(Nazwisko).Append(" ").Append(DataUrodzenia.ToString("dd.MM.yyyy")).Append(" ").Append(Pesel).Append(" ").Append(Plec).Append(" ").Append(doswiadczenie);
             return info.ToString();
         }
+
+
+        private static ZespolContext _context = new ZespolContext();
+        public static void dodajKierownika(KierownikZespolu kierownik)
+        {
+            _context.Kierownik.Add(kierownik);
+            _context.SaveChanges();
+        }
     }
 }

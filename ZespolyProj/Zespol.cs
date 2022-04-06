@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -49,45 +50,50 @@ namespace ZespolyProj
             zespol.liczbaCzlonkow++;
             _context.SaveChanges();
         }
-        public static void dodajCzlonka(string PESEL, int id)
+        public static void dodajCzlonka(string PESEL, string nazwa)
         {
-            var zespol = _context.Zespoly.SingleOrDefault(x => x.ZespolId == id);
+            var zespol = _context.Zespoly.SingleOrDefault(x => x.Nazwa == nazwa);
             zespol.Czlonkowie.Add(_context.Czlonkowie.SingleOrDefault(x => x.Pesel == PESEL));
             zespol.liczbaCzlonkow++;
             _context.SaveChanges();
         }
-        public static void usunCzlonka(CzlonekZespolu czlonek, int id)
+        public static void usunCzlonka(CzlonekZespolu czlonek, string nazwa)
         {
-            var zespol = _context.Zespoly.SingleOrDefault(x => x.ZespolId == id);
+            var zespol = _context.Zespoly.SingleOrDefault(x => x.Nazwa == nazwa);
             zespol.liczbaCzlonkow--;
             _context.Czlonkowie.Remove(czlonek);
             _context.SaveChanges();
         }
-        public static void usunCzlonka(string PESEL, int id)
+        public static void usunCzlonka(string PESEL, string nazwa)
         {
-            var zespol = _context.Zespoly.SingleOrDefault(x => x.ZespolId == id);
+            var zespol = _context.Zespoly.SingleOrDefault(x => x.Nazwa == nazwa);
             zespol.liczbaCzlonkow--;
             _context.Czlonkowie.Remove(_context.Czlonkowie.SingleOrDefault(x => x.Pesel == PESEL));
             _context.SaveChanges();
         }
-        public static void usunWszystkichCzlonkow(int id)
+        public static void usunWszystkichCzlonkow(string nazwa)
         {
-            var zespol = _context.Zespoly.SingleOrDefault(x => x.ZespolId == id);
+            var zespol = _context.Zespoly.SingleOrDefault(x => x.Nazwa == nazwa);
             zespol.liczbaCzlonkow = 0;
-            foreach(CzlonekZespolu czlonek in _context.Czlonkowie.Where(x => x.Zespol.ZespolId == id))
+            foreach(CzlonekZespolu czlonek in _context.Czlonkowie.Where(x => x.Zespol.Nazwa == nazwa))
             {
                 _context.Czlonkowie.Remove(czlonek);
             }
             _context.SaveChanges();
         }
-        public static List<CzlonekZespolu> zwrocCzlonkowZespolu(int id)
+        public static List<CzlonekZespolu> zwrocCzlonkowZespolu(string nazwa)
         {
-            var zespol = _context.Zespoly.SingleOrDefault(x => x.ZespolId == id);
+            var zespol = _context.Zespoly.SingleOrDefault(x => x.Nazwa == nazwa);
             return zespol.Czlonkowie;
         }
         public static List<string> zwrocNazwyZespolow()
         {
             return _context.Zespoly.Select(x => x.Nazwa).ToList();
+        }
+        public static Zespol zwrocCalyZespol(string nazwa)
+        {
+            return _context.Zespoly.Where(z => z.Nazwa == nazwa).Include(zespol => zespol.Kierownik).Include(zespol =>
+               zespol.Czlonkowie).FirstOrDefault();
         }
     }
 }
