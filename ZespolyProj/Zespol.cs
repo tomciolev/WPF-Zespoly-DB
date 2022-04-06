@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace ZespolyProj
         KierownikZespolu kierownik;
         List<CzlonekZespolu> czlonkowie;
 
+        [Key]
+        public int ZespolId { get; set; }
         public int LiczbaCzlonkow { get => liczbaCzlonkow; set => liczbaCzlonkow = value; }
         public string Nazwa { get => nazwa; set => nazwa = value; }
         public KierownikZespolu Kierownik { get => kierownik; set => kierownik = value; }

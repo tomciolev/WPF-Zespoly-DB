@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,11 @@ namespace ZespolyProj
         DateTime dataZapisu;
         string funkcja;
 
+        [Key]
+        public int CzlonekId { get; set; }
         public DateTime DataZapisu { get => dataZapisu; set => dataZapisu = value; }
         public string Funkcja { get => funkcja; set => funkcja = value; }
+        public Zespol Zespol { get; set; }
 
         public CzlonekZespolu() : base() { }
         public CzlonekZespolu(string imie, string nazwisko, string dataUrodzenia, string pesel, Plcie plec, string dataZapisu, string funkcja) 

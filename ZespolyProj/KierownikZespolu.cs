@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace ZespolyProj
     {
         int doswiadczenie;
 
+        [Key]
+        public int KierownikId { get; set; }
         public int Doswiadczenie { get => doswiadczenie; set => doswiadczenie = value; }
 
         public KierownikZespolu() : base() { }
