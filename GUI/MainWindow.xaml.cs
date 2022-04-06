@@ -101,5 +101,11 @@ namespace GUI
                 dataGrid1.Items.Refresh(); 
             }
         }
+
+        private void btnUsunZespol_Click(object sender, RoutedEventArgs e)
+        {
+            zespol.usunZespol();
+            cmbNazwy.Items.Refresh();
+        }
     }
 }

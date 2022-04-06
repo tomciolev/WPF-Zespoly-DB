@@ -46,6 +46,8 @@ namespace ZespolyProj
         public void usunZespol()
         {
             var zespol = _context.Zespoly.SingleOrDefault(x => x.Nazwa == this.Nazwa);
+            foreach(CzlonekZespolu czlonek in zespol.czlonkowie)
+                _context.Czlonkowie.Remove(czlonek);
             _context.Zespoly.Remove(zespol);
             _context.SaveChanges();
         }
