@@ -34,5 +34,6 @@ namespace ZespolyProj
             info.Append(Imie).Append(" ").Append(Nazwisko).Append(" ").Append(DataUrodzenia.ToString("dd.MM.yyyy")).Append(" ").Append(Pesel).Append(" ").Append(Plec).Append(" ").Append(DataZapisu.ToString("dd.MM.yyyy")).Append(" ").Append(Funkcja);
             return info.ToString();
         }
+        
     }
 }

@@ -33,6 +33,8 @@ namespace ZespolyProj
             this.Nazwa = nazwa;
             this.Kierownik = kierownik;
         }
+
+
         private static ZespolContext _context = new ZespolContext();
 
         public static void dodajZespol(string nazwa, KierownikZespolu kierownik)
@@ -47,6 +49,13 @@ namespace ZespolyProj
             zespol.liczbaCzlonkow++;
             _context.SaveChanges();
         }
+        public static void dodajCzlonka(string PESEL, int id)
+        {
+            var zespol = _context.Zespoly.SingleOrDefault(x => x.ZespolId == id);
+            zespol.Czlonkowie.Add(_context.Czlonkowie.SingleOrDefault(x => x.Pesel == PESEL));
+            zespol.liczbaCzlonkow++;
+            _context.SaveChanges();
+        }
         public static void usunCzlonka(CzlonekZespolu czlonek, int id)
         {
             var zespol = _context.Zespoly.SingleOrDefault(x => x.ZespolId == id);
@@ -54,6 +63,31 @@ namespace ZespolyProj
             _context.Czlonkowie.Remove(czlonek);
             _context.SaveChanges();
         }
-
+        public static void usunCzlonka(string PESEL, int id)
+        {
+            var zespol = _context.Zespoly.SingleOrDefault(x => x.ZespolId == id);
+            zespol.liczbaCzlonkow--;
+            _context.Czlonkowie.Remove(_context.Czlonkowie.SingleOrDefault(x => x.Pesel == PESEL));
+            _context.SaveChanges();
+        }
+        public static void usunWszystkichCzlonkow(int id)
+        {
+            var zespol = _context.Zespoly.SingleOrDefault(x => x.ZespolId == id);
+            zespol.liczbaCzlonkow = 0;
+            foreach(CzlonekZespolu czlonek in _context.Czlonkowie.Where(x => x.Zespol.ZespolId == id))
+            {
+                _context.Czlonkowie.Remove(czlonek);
+            }
+            _context.SaveChanges();
+        }
+        public static List<CzlonekZespolu> zwrocCzlonkowZespolu(int id)
+        {
+            var zespol = _context.Zespoly.SingleOrDefault(x => x.ZespolId == id);
+            return zespol.Czlonkowie;
+        }
+        public static List<string> zwrocNazwyZespolow()
+        {
+            return _context.Zespoly.Select(x => x.Nazwa).ToList();
+        }
     }
 }
