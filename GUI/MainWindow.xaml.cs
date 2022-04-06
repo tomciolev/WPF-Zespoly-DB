@@ -41,7 +41,15 @@ namespace GUI
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-
+            CzlonekZespolu cz = new CzlonekZespolu();
+            OsobaWindow osobaWindow = new OsobaWindow(cz);
+            bool? result = osobaWindow.ShowDialog();
+            if (result == true)
+            {
+                Zespol.dodajCzlonka(cz, 1);
+                dataGrid1.ItemsSource = Zespol.zwrocCzlonkowZespolu(cmbNazwy.Text);
+                dataGrid1.Items.Refresh();
+            }
         }
     }
 }
